@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyReactiveAuthentication</string>
+
+    <string name="tv_welcome_main">Welcome</string>
+    <string name="tv_description_main">Register your new account</string>
+    <string name="edt_hint_email_main">Enter an email</string>
+    <string name="edt_hint_password_main">Enter a password</string>
+    <string name="edt_hint_password_confirmation_main">Enter a password again</string>
+    <string name="btn_submit_main">Submit</string>
+    <string name="edt_error_email_main">Email has already been taken</string>
+    <string name="edt_error_password_main">Password must be at least 6 characters</string>
+    <string name="edt_password_confirmation_error_main">Password confirmation does not match</string>
+</resources>
