@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 data class RegisteredUsersResponse(
 
     @field:Json(name = "emails")
-    val emails: List<String?>? = null,
+    val emails: List<String>? = null,
 )

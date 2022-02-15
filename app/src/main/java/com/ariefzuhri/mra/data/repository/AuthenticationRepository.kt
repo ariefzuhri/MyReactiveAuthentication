@@ -1,7 +1,7 @@
 package com.ariefzuhri.mra.data.repository
 
 import com.ariefzuhri.mra.data.source.remote.RemoteDataSource
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 class AuthenticationRepository private constructor(private val remoteDataSource: RemoteDataSource) {
 

@@ -1,7 +1,7 @@
 package com.ariefzuhri.mra.data.source.remote.network
 
 import com.ariefzuhri.mra.data.source.remote.response.RegisteredUsersResponse
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 
 private const val REGISTERED_USERS_ENDPOINT =

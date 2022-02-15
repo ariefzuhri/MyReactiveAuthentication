@@ -13,11 +13,11 @@ import com.ariefzuhri.mra.R
 import com.ariefzuhri.mra.databinding.ActivityMainBinding
 import com.ariefzuhri.mra.ui.viewmodel.ViewModelFactory
 import com.ariefzuhri.mra.util.TAG
-import com.jakewharton.rxbinding2.widget.RxTextView
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
+import com.jakewharton.rxbinding4.widget.textChanges
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 import java.util.concurrent.TimeUnit
 
 /**
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         /* Init email stream */
-        val emailStream: Observable<Boolean> = RxTextView.textChanges(binding.edtEmail)
+        val emailStream: Observable<Boolean> = binding.edtEmail.textChanges()
             // Convert from CharSequence to String
             .map { email -> email.toString() }
             // All "character" strings will be escaped if their length is more than 3
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         emailStream.subscribe(emailObserver)
 
         /* Init password stream */
-        val passwordStream: Observable<Boolean> = RxTextView.textChanges(binding.edtPassword)
+        val passwordStream: Observable<Boolean> = binding.edtPassword.textChanges()
             .map { password ->
                 password.isNotEmpty() && password.toString().trim().length < 6
             }
@@ -111,11 +111,11 @@ class MainActivity : AppCompatActivity() {
 
         /* Init password confirmation stream */
         val passwordConfirmationStream: Observable<Boolean> = Observable.merge(
-            RxTextView.textChanges(binding.edtPassword)
+            binding.edtPassword.textChanges()
                 .map { password ->
                     password.toString().trim() != binding.edtPasswordConfirmation.text.toString()
                 },
-            RxTextView.textChanges(binding.edtPasswordConfirmation)
+            binding.edtPasswordConfirmation.textChanges()
                 .map { passwordConfirmation ->
                     passwordConfirmation.toString().trim() != binding.edtPassword.text.toString()
                 }
@@ -143,11 +143,11 @@ class MainActivity : AppCompatActivity() {
 
         /* Init empty field stream */
         val emptyFieldStream: Observable<Boolean> = Observable.combineLatest(
-            RxTextView.textChanges(binding.edtEmail)
+            binding.edtEmail.textChanges()
                 .map { email -> email.isEmpty() },
-            RxTextView.textChanges(binding.edtPassword)
+            binding.edtPassword.textChanges()
                 .map { password -> password.isEmpty() },
-            RxTextView.textChanges(binding.edtPasswordConfirmation)
+            binding.edtPasswordConfirmation.textChanges()
                 .map { passwordConfirmation -> passwordConfirmation.isEmpty() }
         ) { isEmailEmpty, isPasswordEmpty, isPasswordConfirmationEmpty ->
             isEmailEmpty || isPasswordEmpty || isPasswordConfirmationEmpty

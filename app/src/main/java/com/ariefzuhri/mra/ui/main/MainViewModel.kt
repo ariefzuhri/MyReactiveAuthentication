@@ -2,7 +2,7 @@ package com.ariefzuhri.mra.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.ariefzuhri.mra.data.repository.AuthenticationRepository
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 class MainViewModel(private val repository: AuthenticationRepository) : ViewModel() {
 
