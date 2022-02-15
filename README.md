@@ -3,12 +3,13 @@
 [![GitHub release][release-shield]][release-url]
 [![MIT License][license-shield]][license-url]
 
-This project **demonstrates the concept of reactive programming** using RxJava 2 written by Muhammad Arif Rohman Hakim on Medium [here](https://medium.com/@rohmanhakim/mengulik-reactive-programming-di-android-bagian-1-916b111c5597).
-
-See the API response [here](https://gist.githubusercontent.com/ariefzuhri/f56baf72bd8de6bb23bb013d5bda0f53/raw/d7d5565be93c3e009415a07e453eb333086e944a/registered-users.json) for registered email when trying to enter email field.
+This project **demonstrates the concept of reactive programming** using RxJava 3 written by Muhammad Arif Rohman Hakim on Medium [here](https://medium.com/@rohmanhakim/mengulik-reactive-programming-di-android-bagian-1-916b111c5597).
 
 ## Download
 Check out the [release page](https://github.com/ariefzuhri/ReactiveAndroidDemo/releases) and download the latest apk.
+
+## Demo Instructions
+When trying to enter email field, see the API response [here](https://gist.githubusercontent.com/ariefzuhri/f56baf72bd8de6bb23bb013d5bda0f53/raw/d7d5565be93c3e009415a07e453eb333086e944a/registered-users.json) for registered email.
 
 ## 🤝 Support
 Any contributions, issues, and feature requests are welcome.
