@@ -21,7 +21,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 import java.util.concurrent.TimeUnit
 
 /**
- * List of requirements:
+ * List of requirements (authentication form):
  * - In the default state, the form has 3 fields for email, password, and password confirmation, as well as a submit button.
  * - In the default state, the submit button is disabled.
  *
@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit
  * - If all the conditions are met, enable the submit button.
  * */
 
-private const val API_CALL_TIMEOUT = 500L
+private const val API_CALL_TIMEOUT = 100L
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +83,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         emailStream.subscribe(emailObserver)
+
+        // Alternative syntax:
+        /*disposables.add(
+            emailStream.subscribe(
+                { isEmailExist ->
+                    showEmailExistAlert(isEmailExist)
+                },
+                { throwable ->
+                    Log.w(TAG, throwable)
+                }
+            )
+        )*/
 
         /* Init password stream */
         val passwordStream: Observable<Boolean> = binding.edtPassword.textChanges()

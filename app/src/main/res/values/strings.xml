@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyReactiveAuthentication</string>
+    <string name="app_name">Android Reactive Demo</string>
 
     <string name="tv_welcome_main">Welcome</string>
     <string name="tv_description_main">Register your new account</string>
